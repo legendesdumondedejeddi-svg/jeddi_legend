@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="utf-8"><title>Légendes</title><link rel="stylesheet" href="/static/css/style.css"></head>
+<body>
+<header>
+<h1>Grimoire des Légendes</h1>
+<nav>
+<a href="/fr/accueil">Accueil</a> |
+<a href="/fr/jeddi">Jeddi</a> |
+<a href="/fr/about">À propos</a> |
+<a href="/fr/galerie">Galerie</a> |
+<a href="/fr/legendes">Légendes</a> |
+<a href="/fr/don">Don</a>
+</nav>
+</header>
+<main>
+<form method="POST">
+<textarea name="legend_text" rows="10" cols="80" placeholder="Écris ta légende ici...">{{ legend_text }}</textarea><br>
+<input type="password" name="password" placeholder="Mot de passe administrateur"><br>
+<button type="submit">💾 Enregistrer</button>
+</form>
+</main>
+<footer>© 2025 Légendes du Monde de Jeddi</footer>
+<img src="/static/images/licorne.gif" class="licorne">
+</body>
+</html>

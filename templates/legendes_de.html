@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><meta charset="utf-8"><title>Legenden</title><link rel="stylesheet" href="/static/css/style.css"></head>
+<body>
+<header>
+<h1>Buch der Legenden</h1>
+<nav>
+<a href="/de/accueil">Startseite</a> |
+<a href="/de/jeddi">Jeddi</a> |
+<a href="/de/about">Über uns</a> |
+<a href="/de/galerie">Galerie</a> |
+<a href="/de/legendes">Legenden</a> |
+<a href="/de/don">Spenden</a>
+</nav>
+</header>
+<main>
+<form method="POST">
+<textarea name="legend_text" rows="10" cols="80" placeholder="Schreibe deine Legende hier...">{{ legend_text }}</textarea><br>
+<input type="password" name="password" placeholder="Administrator-Passwort"><br>
+<button type="submit">💾 Speichern</button>
+</form>
+</main>
+<footer>© 2025 Legenden der Welt von Jeddi</footer>
+<img src="/static/images/licorne.gif" class="licorne">
+</body>
+</html>

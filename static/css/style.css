@@ -1,0 +1,38 @@
+body {
+    background-color: #f8f5f2;
+    font-family: "Georgia", serif;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+header {
+    background-color: #3a2d2d;
+    color: #fff;
+    padding: 1em;
+}
+nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+footer {
+    background-color: #3a2d2d;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.licorne {
+    width: 150px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    animation: courir 8s linear infinite;
+}
+@keyframes courir {
+    0% { right: -150px; }
+    100% { right: 100%; }
+}
