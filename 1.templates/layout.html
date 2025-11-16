@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Légendes du Monde de Jeddi{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="{{ url_for('accueil', lang=lang) }}">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="#">Jeddi</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('jeddi', lang=lang) }}">Apprenez tout sur Jeddi</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">À propos</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('apropos', lang=lang) }}">À propos du site</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Dons</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('dons', lang=lang) }}">Pourquoi soutenir</a>
+                    </div>
+                </li>
+                <li><a href="{{ url_for('grimoire', lang=lang) }}">Grimoire</a></li>
+                <li class="dropdown">
+                    <a href="#">Langue</a>
+                    <div class="dropdown-content">
+                        <a href="{{ request.path }}?lang=fr">FR</a>
+                        <a href="{{ request.path }}?lang=en">EN</a>
+                        <a href="{{ request.path }}?lang=es">ES</a>
+                        <a href="{{ request.path }}?lang=de">DE</a>
+                        <a href="{{ request.path }}?lang=it">IT</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Légendes du Monde de Jeddi – Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

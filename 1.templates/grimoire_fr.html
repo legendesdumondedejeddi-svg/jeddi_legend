@@ -1,0 +1,38 @@
+{% include "layout.html" %}
+
+<div class="grimoire">
+    <h1>Grimoire</h1>
+
+    <article>
+        <p>{{ texte }}</p>
+    </article>
+
+    <div class="pagination">
+        {% if prev_page %}
+        <a href="/fr/grimoire?page={{ prev_page }}">Page précédente</a>
+        {% endif %}
+
+        {% if next_page %}
+        <a href="/fr/grimoire?page={{ next_page }}">Page suivante</a>
+        {% endif %}
+    </div>
+
+    <div class="commentaires">
+        <h3>Commentaires</h3>
+
+        <form method="post" action="/commentaires">
+            <input type="hidden" name="lang" value="fr">
+            <input type="hidden" name="page" value="{{ page }}">
+            <textarea name="commentaire"></textarea>
+            <button>Envoyer</button>
+        </form>
+
+        <ul>
+            {% for c in commentaires %}
+            <li>{{ c }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<footer>© 2025 Monde de Jeddi</footer>

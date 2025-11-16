@@ -1,27 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>Home</title>
-<link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-<header>
-<h1>Legends of the World of Jeddi</h1>
-<nav>
-<a href="/en/accueil">Home</a> |
-<a href="/en/jeddi">Jeddi</a> |
-<a href="/en/about">About</a> |
-<a href="/en/galerie">Gallery</a> |
-<a href="/en/legendes">Legends</a> |
-<a href="/en/don">Donate</a>
-</nav>
-</header>
-<main>
-<h2>Welcome to the World of Jeddi</h2>
-<p>Explore ancient worlds and rediscover forgotten tales.</p>
-</main>
-<footer>© 2025 Legends of the World of Jeddi</footer>
-<img src="/static/images/licorne.gif" class="licorne">
-</body>
-</html>
+{% extends "layout.html" %}
+{% block title %}Home — Legends of the World of Jeddi{% endblock %}
+{% block content %}
+<h1>Welcome to the World of Jeddi</h1>
+<p>Step into a realm where ancient tales meet the imagination of today. Your journey begins here.</p>
+{% endblock %}

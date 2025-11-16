@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="utf-8"><title>Gallery</title><link rel="stylesheet" href="/static/css/style.css"></head>
-<body>
-<header>
-<h1>Gallery of Mythical Creatures</h1>
-<nav>
-<a href="/en/accueil">Home</a> |
-<a href="/en/jeddi">Jeddi</a> |
-<a href="/en/about">About</a> |
-<a href="/en/galerie">Gallery</a> |
-<a href="/en/legendes">Legends</a> |
-<a href="/en/don">Donate</a>
-</nav>
-</header>
-<main>
-<h2>Behold the unicorn and the mist dragon</h2>
-<p>Each image tells a story; each light carries a memory.</p>
-</main>
-<footer>© 2025 Legends of the World of Jeddi</footer>
-<img src="/static/images/licorne.gif" class="licorne">
-</body>
-</html>
+{% extends "layout.html" %}
+{% block title %}Gallery — Creatures & Illustrations{% endblock %}
+{% block content %}
+<h1>Gallery</h1>
+<p>This place will soon offer illustrations of the creatures, relics, landscapes and symbols that inhabit the legends.</p>
+{% endblock %}

@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="utf-8"><title>Jeddi</title><link rel="stylesheet" href="/static/css/style.css"></head>
-<body>
-<header>
-<h1>Jeddi — The Keeper of Legends</h1>
-<nav>
-<a href="/en/accueil">Home</a> |
-<a href="/en/jeddi">Jeddi</a> |
-<a href="/en/about">About</a> |
-<a href="/en/galerie">Gallery</a> |
-<a href="/en/legendes">Legends</a> |
-<a href="/en/don">Donate</a>
-</nav>
-</header>
-<main>
-<p>Jeddi travels through time to preserve the memory of forgotten worlds.</p>
-</main>
-<footer>© 2025 Legends of the World of Jeddi</footer>
-<img src="/static/images/licorne.gif" class="licorne">
-</body>
-</html>
+{% extends "layout.html" %}
+{% block title %}Jeddi — The Keeper of Stories{% endblock %}
+{% block content %}
+<h1>Jeddi</h1>
+<p>Jeddi is the guardian of ancient knowledge, a traveler wandering between myth and the real world. 
+He gathers lost stories and protects the memory of forgotten civilizations.</p>
+{% endblock %}

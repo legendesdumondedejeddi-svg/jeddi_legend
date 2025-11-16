@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="utf-8">
-  <title>Benvenuto — Leggende del Mondo di Jeddi</title>
+  <title>Informazioni — Leggende del Mondo di Jeddi</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -16,7 +16,6 @@
     <a href="/it/galerie">Galleria</a>
     <a href="/it/legendes">Leggende</a>
     <a href="/it/don">Donazioni</a>
-
     <div class="dropdown">
       <button class="dropbtn">Lingua</button>
       <div class="dropdown-content">
@@ -31,22 +30,17 @@
 </header>
 
 <main>
-  <h1>Benvenuto nel Mondo di Jeddi</h1>
+  <h1>Chi siamo</h1>
+  <p>Leggende del Mondo di Jeddi è un progetto che raccoglie, traduce e rinnova racconti antichi e nuovi.</p>
 
-  <p>
-    Benvenuto, viaggiatore audace.  
-    Oltre il tempo e le frontiere conosciute c’è un luogo plasmato dai sogni e dalle storie:
-    il Mondo di Jeddi. Qui ogni sentiero racconta una leggenda.
-  </p>
+  <p>Le fonti possono venire da biblioteche, archivi digitali e tradizioni orali: il nostro lavoro è dare loro nuova voce, in più lingue.</p>
 
-  <section class="hero">
-    <img src="{{ url_for('static', filename='grimoire.png') }}" alt="Grimoire" class="grimoire-full">
-    <p class="lead">Apri il grimoire per leggere o scrivere nuove leggende.</p>
-  </section>
+  <h3>Missione</h3>
+  <p>Offrire un luogo dove la creatività può circolare liberamente — leggere, scrivere, contribuire.</p>
 </main>
 
 <footer>
-  <p>© 2025 Légendes du Monde de Jeddi — Tutti i diritti riservati</p>
+  <p>© 2025 Légendes du Monde de Jeddi</p>
   <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Licorne qui galope" class="footer-gif">
 </footer>
 </body>

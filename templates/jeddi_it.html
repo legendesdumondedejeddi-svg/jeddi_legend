@@ -1,8 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}Jeddi — L’eroe leggendario{% endblock %}
+{% block content %}
+<h1>Chi è Jeddi?</h1>
+<p>Scopri tutto su Jeddi, l’eroe leggendario che attraversa mondi, 
+affronta forze oscure e custodisce segreti dimenticati dal tempo.</p>
+{% endblock %}
 <!doctype html>
 <html lang="it">
 <head>
   <meta charset="utf-8">
-  <title>Benvenuto — Leggende del Mondo di Jeddi</title>
+  <title>Jeddi — Eroe Leggendario</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -16,7 +23,6 @@
     <a href="/it/galerie">Galleria</a>
     <a href="/it/legendes">Leggende</a>
     <a href="/it/don">Donazioni</a>
-
     <div class="dropdown">
       <button class="dropbtn">Lingua</button>
       <div class="dropdown-content">
@@ -31,22 +37,27 @@
 </header>
 
 <main>
-  <h1>Benvenuto nel Mondo di Jeddi</h1>
+  <h1>Jeddi — il custode delle leggende</h1>
 
   <p>
-    Benvenuto, viaggiatore audace.  
-    Oltre il tempo e le frontiere conosciute c’è un luogo plasmato dai sogni e dalle storie:
-    il Mondo di Jeddi. Qui ogni sentiero racconta una leggenda.
+    Nel vasto universo di "Leggende del Mondo di Jeddi" una figura è centrale: Jeddi.  
+    Ricercatore instancabile e guardiano delle storie antiche, egli scava tra manoscritti, tesse traduzioni e ridona voce a racconti dimenticati.
   </p>
 
-  <section class="hero">
-    <img src="{{ url_for('static', filename='grimoire.png') }}" alt="Grimoire" class="grimoire-full">
-    <p class="lead">Apri il grimoire per leggere o scrivere nuove leggende.</p>
-  </section>
+  <h3>Il suo lavoro</h3>
+  <p>
+    Jeddi visita archivi e biblioteche (come la BnF), decifra testi in vecchie lingue e riscrive i racconti in una lingua contemporanea.  
+    Inoltre cura le traduzioni in inglese, spagnolo, tedesco e italiano per permettere alle leggende di incontrarsi.
+  </p>
+
+  <h3>Perché lo fa</h3>
+  <p>
+    Per conservare le voci del passato e farle parlare anche oggi, con rispetto e passione.
+  </p>
 </main>
 
 <footer>
-  <p>© 2025 Légendes du Monde de Jeddi — Tutti i diritti riservati</p>
+  <p>© 2025 Légendes du Monde de Jeddi</p>
   <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Licorne qui galope" class="footer-gif">
 </footer>
 </body>

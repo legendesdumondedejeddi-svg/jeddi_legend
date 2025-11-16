@@ -1,27 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="utf-8"><title>Donate</title><link rel="stylesheet" href="/static/css/style.css"></head>
-<body>
-<header>
-<h1>Support Legends of the World of Jeddi</h1>
-<nav>
-<a href="/en/accueil">Home</a> |
-<a href="/en/jeddi">Jeddi</a> |
-<a href="/en/about">About</a> |
-<a href="/en/galerie">Gallery</a> |
-<a href="/en/legendes">Legends</a> |
-<a href="/en/don">Donate</a>
-</nav>
-</header>
-<main>
-<p>Thank you for supporting this project. Your donations help preserve ancient stories.</p>
+{% extends "layout.html" %}
+{% block title %}Support the Project{% endblock %}
+{% block content %}
+<h1>Support the Project</h1>
+<p>Your contribution helps preserve and share the ancient stories collected here. 
+This project exists to keep forgotten tales alive and accessible to everyone.</p>
+
 <form action="https://www.paypal.com/donate" method="post" target="_blank">
-<input type="hidden" name="business" value="ton-email-paypal@example.com">
-<input type="hidden" name="currency_code" value="EUR">
-<input type="submit" value="Donate via PayPal">
+  <input type="hidden" name="business" value="patrick.letoffet@gmail.com">
+  <input type="hidden" name="currency_code" value="EUR">
+  <button type="submit">Donate via PayPal</button>
 </form>
-</main>
-<footer>© 2025 Legends of the World of Jeddi</footer>
-<img src="/static/images/licorne.gif" class="licorne">
-</body>
-</html>
+
+<p><small>Your PayPal information remains private.</small></p>
+{% endblock %}

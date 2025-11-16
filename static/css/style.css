@@ -1,38 +1,77 @@
 body {
-    background-color: #f8f5f2;
     font-family: "Georgia", serif;
-    color: #222;
+    background-color: #f5f0e6;
+    color: #333;
     margin: 0;
     padding: 0;
-    text-align: center;
 }
-header {
-    background-color: #3a2d2d;
-    color: #fff;
-    padding: 1em;
+
+header nav {
+    background-color: #4b3b2f;
+    padding: 10px;
 }
-nav a {
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
     color: #fff;
-    margin: 0 10px;
     text-decoration: none;
+    padding: 10px 15px;
+    display: block;
 }
-footer {
-    background-color: #3a2d2d;
+
+.menu li:hover {
+    background-color: #6a5442;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #6a5442;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 10px;
+    display: block;
     color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
     text-align: center;
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 15px;
+    background-color: #4b3b2f;
+    color: white;
 }
-.licorne {
-    width: 150px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    animation: courir 8s linear infinite;
+
+.commentaires {
+    margin-top: 20px;
 }
-@keyframes courir {
-    0% { right: -150px; }
-    100% { right: 100%; }
+
+.commentaires form {
+    display: flex;
+    flex-direction: column;
+}
+
+.commentaires input, .commentaires textarea {
+    margin-bottom: 10px;
+    padding: 8px;
 }

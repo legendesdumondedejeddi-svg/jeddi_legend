@@ -1,26 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="utf-8"><title>Legends</title><link rel="stylesheet" href="/static/css/style.css"></head>
-<body>
-<header>
+{% extends "layout.html" %}
+{% block title %}Grimoire — Legends{% endblock %}
+{% block content %}
 <h1>Book of Legends</h1>
-<nav>
-<a href="/en/accueil">Home</a> |
-<a href="/en/jeddi">Jeddi</a> |
-<a href="/en/about">About</a> |
-<a href="/en/galerie">Gallery</a> |
-<a href="/en/legendes">Legends</a> |
-<a href="/en/don">Donate</a>
-</nav>
-</header>
-<main>
-<form method="POST">
-<textarea name="legend_text" rows="10" cols="80" placeholder="Write your legend here...">{{ legend_text }}</textarea><br>
-<input type="password" name="password" placeholder="Admin password"><br>
-<button type="submit">💾 Save</button>
-</form>
-</main>
-<footer>© 2025 Legends of the World of Jeddi</footer>
-<img src="/static/images/licorne.gif" class="licorne">
-</body>
-</html>
+
+<section class="grimoire-area" style="background-image: url('{{ url_for('static', filename='images/grimoire.png') }}');">
+  <div class="grimoire-content">
+    <h2>Page {{ page }} / {{ pages }}</h2>
+
+    <article class="legend-text">
+      {{ legend_text | safe }}
+    </article>
+
+    <div class="pagination">
+      {% if page > 1 %}
+        <a href="/{{ lang }}/legendes?page={{ page-1 }}">← Previous</a>
+      {% endif %}
+      {% if page < pages %}
+        <a href="/{{ lang }}/legendes?page={{ page+1 }}">Next →</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="comments">
+  <h3>Comments</h3>
+  {% for c in comments %}
+    <div class="comment"><strong>{{ c.author }}</strong>: {{ c.text }}</div>
+  {% else %}
+    <div>No comments yet.</div>
+  {% endfor %}
+  <form action="/{{ lang }}/comment" method="post">
+    <input type="hidden" name="index" value="{{ page-1 }}">
+    <input type="text" name="author" placeholder="Your name (optional)">
+    <textarea name="comment" rows="3" placeholder="Your comment..."></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<section class="admin-edit">
+  <h3>Editing (Admin)</h3>
+  <form method="post" action="/{{ lang }}/legendes">
+    <textarea name="legend_text" rows="10" placeholder="Write or edit the legend here..."></textarea><br>
+    <label>Index to modify (leave empty to create new):
+      <input type="text" name="edit_index" placeholder="ex: {{ page }}">
+    </label>
+    <input type="password" name="password" placeholder="Admin password">
+    <button type="submit">Save</button>
+  </form>
+</section>
+{% endblock %}

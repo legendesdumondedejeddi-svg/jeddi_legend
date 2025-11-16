@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}Grimoire{% endblock %}
+{% block content %}
+<h1>Grimoire</h1>
+<div class="legende">
+    <p>{{ texte }}</p>
+</div>
+
+<div class="pagination">
+    {% if prev_page %}
+        <a href="{{ url_for('grimoire', page=prev_page, lang=lang) }}">« Précédent</a>
+    {% endif %}
+    <span>Page {{ page }} sur {{ legendes|length }}</span>
+    {% if next_page %}
+        <a href="{{ url_for('grimoire', page=next_page, lang=lang) }}">Suivant »</a>
+    {% endif %}
+</div>
+
+<div class="commentaires">
+    <h2>Commentaires</h2>
+    <form method="POST" action="{{ url_for('commentaires_route') }}">
+        <textarea name="commentaire" rows="3" placeholder="Votre commentaire..."></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
+    <ul>
+        {% for com in commentaires %}
+            <li>{{ com }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,27 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
-<head><meta charset="utf-8"><title>Dona</title><link rel="stylesheet" href="/static/css/style.css"></head>
+<head>
+  <meta charset="utf-8">
+  <title>Donazioni — Leggende del Mondo di Jeddi</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 <body>
 <header>
-<h1>Sostieni Leggende del Mondo di Jeddi</h1>
-<nav>
-<a href="/it/accueil">Home</a> |
-<a href="/it/jeddi">Jeddi</a> |
-<a href="/it/about">Chi siamo</a> |
-<a href="/it/galerie">Galleria</a> |
-<a href="/it/legendes">Leggende</a> |
-<a href="/it/don">Dona</a>
-</nav>
+  <img src="{{ url_for('static', filename='licorne.png') }}" alt="Bannière Licorne" class="header-banner">
+  <nav>
+    <a href="/it/accueil">Home</a>
+    <a href="/it/jeddi">Jeddi</a>
+    <a href="/it/about">Informazioni</a>
+    <a href="/it/galerie">Galleria</a>
+    <a href="/it/legendes">Leggende</a>
+    <a href="/it/don">Donazioni</a>
+    <div class="dropdown">
+      <button class="dropbtn">Lingua</button>
+      <div class="dropdown-content">
+        <a href="/fr/accueil">FR</a>
+        <a href="/en/accueil">EN</a>
+        <a href="/it/accueil">IT</a>
+        <a href="/de/accueil">DE</a>
+        <a href="/es/accueil">ES</a>
+      </div>
+    </div>
+  </nav>
 </header>
+
 <main>
-<p>Grazie per il tuo sostegno. Le tue donazioni aiutano a preservare le antiche storie.</p>
-<form action="https://www.paypal.com/donate" method="post" target="_blank">
-<input type="hidden" name="business" value="ton-email-paypal@example.com">
-<input type="hidden" name="currency_code" value="EUR">
-<input type="submit" value="Dona con PayPal">
-</form>
+  <h1>Sostieni il progetto</h1>
+
+  <p>Se ami il progetto e vuoi sostenerci, puoi fare una donazione sicura via PayPal.  
+     L’indirizzo esatto non viene mostrato pubblicamente per motivi di sicurezza: quando sei pronto, apri il pulsante qui sotto — verrai indirizzato al modulo PayPal.</p>
+
+  <!-- Remplace 'patrick.letoffet@gmail.com' par ton adresse PayPal -->
+  <form action="https://www.paypal.com/donate" method="post" target="_blank" aria-label="Donazioni PayPal">
+    <input type="hidden" name="business" value="patrick.letoffet@gmail.com">
+    <input type="hidden" name="currency_code" value="EUR">
+    <button type="submit" class="btn">Donare con PayPal</button>
+  </form>
+
+  <p><small>Consiglio sicurezza : non affiche ton email PayPal publiquement. Utilise la redirection PayPal et vérifie toujours l’URL payante avant de saisir des informations.</small></p>
 </main>
-<footer>© 2025 Leggende del Mondo di Jeddi</footer>
-<img src="/static/images/licorne.gif" class="licorne">
+
+<footer>
+  <p>© 2025 Légendes du Monde de Jeddi</p>
+  <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Licorne qui galope" class="footer-gif">
+</footer>
 </body>
 </html>

@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head><meta charset="utf-8"><title>Jeddi</title><link rel="stylesheet" href="/static/css/style.css"></head>
-<body>
-<header>
-<h1>Jeddi — Le Gardien des Légendes</h1>
-<nav>
-<a href="/fr/accueil">Accueil</a> |
-<a href="/fr/jeddi">Jeddi</a> |
-<a href="/fr/about">À propos</a> |
-<a href="/fr/galerie">Galerie</a> |
-<a href="/fr/legendes">Légendes</a> |
-<a href="/fr/don">Don</a>
-</nav>
-</header>
-<main>
-<p>Jeddi voyage à travers le temps pour préserver la mémoire des mondes oubliés.</p>
-</main>
-<footer>© 2025 Légendes du Monde de Jeddi</footer>
-<img src="/static/images/licorne.gif" class="licorne">
-</body>
-</html>
+{% extends "layout.html" %}
+{% block title %}Jeddi — Le Gardien des Histoires{% endblock %}
+{% block content %}
+<h1>Jeddi</h1>
+<p>Jeddi est le gardien des récits et le veilleur du monde ancien. Il parcourt les frontières entre mythe et réalité, cherchant à rassembler les fragments d’histoires perdues.</p>
+{% endblock %}

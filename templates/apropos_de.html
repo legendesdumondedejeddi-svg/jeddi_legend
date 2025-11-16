@@ -1,8 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}Über — Legenden der Welt von Jeddi{% endblock %}
+{% block content %}
+<h1>
+{% extends "layout.html" %}
+{% block title %}Informazioni — Leggende del Mondo di Jeddi{% endblock %}
+{% block content %}
+<h1>Informazioni</h1>
+<p>Questo progetto nasce dal desiderio di dare vita a un universo narrativo unico.
+Ogni leggenda, ogni personaggio e ogni parola sono creati con cura per offrirti un viaggio indimenticabile.</p>
+{% endblock %}
 <!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <title>Willkommen — Legenden der Welt von Jeddi</title>
+  <title>Über — Legenden der Welt von Jeddi</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -16,7 +27,6 @@
     <a href="/de/galerie">Galerie</a>
     <a href="/de/legendes">Legenden</a>
     <a href="/de/don">Spenden</a>
-
     <div class="dropdown">
       <button class="dropbtn">Sprache</button>
       <div class="dropdown-content">
@@ -31,18 +41,18 @@
 </header>
 
 <main>
-  <h1>Willkommen in den Legenden der Welt von Jeddi</h1>
-  <p>Betrete ein Reich, in dem Fantasie und alte Geschichten sich begegnen.  
-     Jede Erzählung, jede Kreatur wartet darauf, entdeckt zu werden.</p>
+  <h1>Über das Projekt</h1>
+  <p>«Legenden der Welt von Jeddi» ist ein Freiraum für Geschichten:  
+     alte Texte, Fundstücke, Übersetzungen und neue Erzählungen werden hier gesammelt und gepflegt.</p>
 
-  <section class="hero">
-    <img src="{{ url_for('static', filename='grimoire.png') }}" alt="Grimoire" class="grimoire-full">
-    <p class="lead">Öffne das Grimoire, um Legenden zu schreiben oder zu lesen.</p>
-  </section>
+  <p>Wir sammeln Quellen aus Bibliotheken, dem Web und Archiven, bearbeiten Texte behutsam und stellen sie in mehreren Sprachen zur Verfügung.</p>
+
+  <h3>Unsere Absicht</h3>
+  <p>Ein offener Ort für Kreativität: lesen, schreiben, teilen — alle willkommen.</p>
 </main>
 
 <footer>
-  <p>© 2025 Légendes du Monde de Jeddi — Tous droits réservés</p>
+  <p>© 2025 Légendes du Monde de Jeddi</p>
   <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Licorne qui galope" class="footer-gif">
 </footer>
 </body>
