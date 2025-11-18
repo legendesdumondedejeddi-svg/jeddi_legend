@@ -75,3 +75,8 @@ footer {
     margin-bottom: 10px;
     padding: 8px;
 }
+html, body {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

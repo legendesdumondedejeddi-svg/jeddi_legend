@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Das Projekt unterstützen{% endblock %}
+{% block content %}
+<h1>Das Projekt unterstützen</h1>
+
+<p>
+Diese Seite dient der Bewahrung und Weitergabe von Geschichten aus der Vergangenheit. Deine Unterstützung hilft dabei, diese Archive lebendig zu halten.
+</p>
+
+<p>
+Spenden sind unerlässlich, um die Fortsetzung und Qualität unserer Arbeit zu sichern. Viele wichtige Ressourcen — darunter Texte, die nur mit einem BnF-Abonnement zugänglich sind, sowie der Zugang zu Online-Datenbanken oder digitalisierten Archiven — verursachen regelmäßige Kosten. Hinzu kommen Ausgaben für Korrekturlesen und Übersetzungen durch Spezialisten für Altfranzösisch und Sprachvarietäten aus ehemaligen französischen Kolonien, deren Fachwissen entscheidend ist, um historische Dokumente originalgetreu wiederzugeben.
+</p>
+
+<p>
+Spenden ermöglichen auch den Kauf oder die Ausleihe seltener oder vergriffener Bücher, die für vollständige und gründliche Recherchen notwendig sind. Dank deiner Unterstützung können wir weiterhin ein literarisches und historisches Erbe bewahren, erforschen und zugänglich machen, das oft schwer erreichbar ist. Jeder Beitrag, selbst ein kleiner, stärkt die Zukunft dieses Projekts und trägt direkt zur Verbreitung wertvollen Wissens bei.
+</p>
+
+<form action="https://www.paypal.com/donate" method="post" target="_blank">
+  <input type="hidden" name="business" value="patrick.letoffet@gmail.com">
+  <input type="hidden" name="currency_code" value="EUR">
+  <button type="submit">Über PayPal spenden</button>
+</form>
+
+<p><small>Deine PayPal-Daten bleiben privat.</small></p>
+{% endblock %}

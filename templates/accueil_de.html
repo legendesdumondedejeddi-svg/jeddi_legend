@@ -1,49 +1,13 @@
-<!doctype html>
-<html lang="de">
-<head>
-  <meta charset="utf-8">
-  <title>Willkommen — Legenden der Welt von Jeddi</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-<header>
-  <img src="{{ url_for('static', filename='licorne.png') }}" alt="Bannière Licorne" class="header-banner">
-  <nav>
-    <a href="/de/accueil">Start</a>
-    <a href="/de/jeddi">Jeddi</a>
-    <a href="/de/about">Über</a>
-    <a href="/de/galerie">Galerie</a>
-    <a href="/de/legendes">Legenden</a>
-    <a href="/de/don">Spenden</a>
+{% extends "layout.html" %}
+{% block content %}
+<h1>Willkommen in den Legenden der Welt von Jeddi</h1>
 
-    <div class="dropdown">
-      <button class="dropbtn">Sprache</button>
-      <div class="dropdown-content">
-        <a href="/fr/accueil">FR</a>
-        <a href="/en/accueil">EN</a>
-        <a href="/it/accueil">IT</a>
-        <a href="/de/accueil">DE</a>
-        <a href="/es/accueil">ES</a>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<main>
-  <h1>Willkommen in den Legenden der Welt von Jeddi</h1>
-  <p>Betrete ein Reich, in dem Fantasie und alte Geschichten sich begegnen.  
-     Jede Erzählung, jede Kreatur wartet darauf, entdeckt zu werden.</p>
-
-  <section class="hero">
-    <img src="{{ url_for('static', filename='grimoire.png') }}" alt="Grimoire" class="grimoire-full">
-    <p class="lead">Öffne das Grimoire, um Legenden zu schreiben oder zu lesen.</p>
-  </section>
-</main>
-
-<footer>
-  <p>© 2025 Légendes du Monde de Jeddi — Tous droits réservés</p>
-  <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Licorne qui galope" class="footer-gif">
-</footer>
-</body>
-</html>
+<p>
+Willkommen bei Legenden der Welt von Jeddi.<br><br>
+Neugierige, Reisende der Fantasie, Geschichtensucher und Alltags­träumer, tretet ein.<br>
+Hier vermischen sich Erzählungen mit Legenden, alte Seiten erwachen, und ferne Welten öffnen ihre Tore.<br>
+Jeder Text ist ein Abenteuer, ob aus alten Archiven, literarischen Fundstücken oder Inspirationen aus anderen Welten.<br><br>
+Lasst eure Schritte zwischen den Zeilen gleiten, folgt den Spuren vergessener Helden und erkundet dieses Reich, in dem Worte ganze Universen erschaffen.<br><br>
+Gute Reise.
+</p>
+{% endblock %}

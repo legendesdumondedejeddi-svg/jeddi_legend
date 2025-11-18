@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/{{ lang }}/">Accueil</a></li>
+                <li><a href="/{{ lang }}/apropos">À propos</a></li>
+                <li><a href="/{{ lang }}/don">Dons</a></li>
+                <li><a href="/{{ lang }}/jeddi">Jeddi</a></li>
+                <li><a href="/{{ lang }}/grimoire">Grimoire</a></li>
+                <li><a href="/{{ lang }}/galerie">Galerie</a></li>
+                <li><a href="/{{ lang }}/legendes">Légendes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>© Légendes du Monde de Jeddi</p>
+    </footer>
+
+</body>
+</html>

@@ -1,53 +1,25 @@
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <title>Donazioni — Leggende del Mondo di Jeddi</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-<header>
-  <img src="{{ url_for('static', filename='licorne.png') }}" alt="Bannière Licorne" class="header-banner">
-  <nav>
-    <a href="/it/accueil">Home</a>
-    <a href="/it/jeddi">Jeddi</a>
-    <a href="/it/about">Informazioni</a>
-    <a href="/it/galerie">Galleria</a>
-    <a href="/it/legendes">Leggende</a>
-    <a href="/it/don">Donazioni</a>
-    <div class="dropdown">
-      <button class="dropbtn">Lingua</button>
-      <div class="dropdown-content">
-        <a href="/fr/accueil">FR</a>
-        <a href="/en/accueil">EN</a>
-        <a href="/it/accueil">IT</a>
-        <a href="/de/accueil">DE</a>
-        <a href="/es/accueil">ES</a>
-      </div>
-    </div>
-  </nav>
-</header>
+{% extends "layout.html" %}
+{% block title %}Sostenere il Progetto{% endblock %}
+{% block content %}
+<h1>Sostenere il progetto</h1>
 
-<main>
-  <h1>Sostieni il progetto</h1>
+<p>
+Questo sito è un lavoro di preservazione e condivisione di racconti del passato. Il tuo aiuto permette di mantenere vive queste raccolte.
+</p>
 
-  <p>Se ami il progetto e vuoi sostenerci, puoi fare una donazione sicura via PayPal.  
-     L’indirizzo esatto non viene mostrato pubblicamente per motivi di sicurezza: quando sei pronto, apri il pulsante qui sotto — verrai indirizzato al modulo PayPal.</p>
+<p>
+Le donazioni sono essenziali per garantire la continuità e la qualità del nostro lavoro. Molte risorse fondamentali —tra cui testi accessibili solo tramite abbonamento alla BnF, l’accesso a banche dati online o ad archivi digitalizzati— richiedono costi regolari. A questi si aggiungono le spese di revisione e traduzione, svolte da specialisti di antico francese e di varietà linguistiche provenienti dalle ex colonie francesi, competenze indispensabili per restituire fedelmente i documenti d’epoca.
+</p>
 
-  <!-- Remplace 'patrick.letoffet@gmail.com' par ton adresse PayPal -->
-  <form action="https://www.paypal.com/donate" method="post" target="_blank" aria-label="Donazioni PayPal">
-    <input type="hidden" name="business" value="patrick.letoffet@gmail.com">
-    <input type="hidden" name="currency_code" value="EUR">
-    <button type="submit" class="btn">Donare con PayPal</button>
-  </form>
+<p>
+Le donazioni permettono anche l’acquisto o il noleggio di libri rari o fuori catalogo, indispensabili per realizzare ricerche complete e rigorose. Grazie al tuo sostegno, possiamo continuare a preservare, studiare e rendere accessibile un patrimonio letterario e storico spesso difficile da consultare. Ogni contributo, anche modesto, rafforza la continuità di questo lavoro e contribuisce direttamente alla diffusione di conoscenze preziose.
+</p>
 
-  <p><small>Consiglio sicurezza : non affiche ton email PayPal publiquement. Utilise la redirection PayPal et vérifie toujours l’URL payante avant de saisir des informations.</small></p>
-</main>
+<form action="https://www.paypal.com/donate" method="post" target="_blank">
+  <input type="hidden" name="business" value="patrick.letoffet@gmail.com">
+  <input type="hidden" name="currency_code" value="EUR">
+  <button type="submit">Dona tramite PayPal</button>
+</form>
 
-<footer>
-  <p>© 2025 Légendes du Monde de Jeddi</p>
-  <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Licorne qui galope" class="footer-gif">
-</footer>
-</body>
-</html>
+<p><small>I tuoi dati PayPal rimangono privati.</small></p>
+{% endblock %}

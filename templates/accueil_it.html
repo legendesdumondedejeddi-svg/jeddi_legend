@@ -1,53 +1,13 @@
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <title>Benvenuto — Leggende del Mondo di Jeddi</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-<header>
-  <img src="{{ url_for('static', filename='licorne.png') }}" alt="Bannière Licorne" class="header-banner">
-  <nav>
-    <a href="/it/accueil">Home</a>
-    <a href="/it/jeddi">Jeddi</a>
-    <a href="/it/about">Informazioni</a>
-    <a href="/it/galerie">Galleria</a>
-    <a href="/it/legendes">Leggende</a>
-    <a href="/it/don">Donazioni</a>
+{% extends "layout.html" %}
+{% block content %}
+<h1>Benvenuti nelle Leggende del Mondo di Jeddi</h1>
 
-    <div class="dropdown">
-      <button class="dropbtn">Lingua</button>
-      <div class="dropdown-content">
-        <a href="/fr/accueil">FR</a>
-        <a href="/en/accueil">EN</a>
-        <a href="/it/accueil">IT</a>
-        <a href="/de/accueil">DE</a>
-        <a href="/es/accueil">ES</a>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<main>
-  <h1>Benvenuto nel Mondo di Jeddi</h1>
-
-  <p>
-    Benvenuto, viaggiatore audace.  
-    Oltre il tempo e le frontiere conosciute c’è un luogo plasmato dai sogni e dalle storie:
-    il Mondo di Jeddi. Qui ogni sentiero racconta una leggenda.
-  </p>
-
-  <section class="hero">
-    <img src="{{ url_for('static', filename='grimoire.png') }}" alt="Grimoire" class="grimoire-full">
-    <p class="lead">Apri il grimoire per leggere o scrivere nuove leggende.</p>
-  </section>
-</main>
-
-<footer>
-  <p>© 2025 Légendes du Monde de Jeddi — Tutti i diritti riservati</p>
-  <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Licorne qui galope" class="footer-gif">
-</footer>
-</body>
-</html>
+<p>
+Benvenuti in Leggende del Mondo di Jeddi.<br><br>
+Curiosi, viaggiatori dell’immaginazione, cercatori di storie e sognatori di ogni giorno, entrate.<br>
+Qui i racconti si intrecciano alle leggende, le vecchie pagine si risvegliano e mondi lontani vi aprono le loro porte.<br>
+Ogni testo è un’avventura, nata da antichi archivi, scoperte letterarie o ispirazioni venute da altrove.<br><br>
+Lasciate che i vostri passi scivolino tra le righe, seguite le tracce degli eroi dimenticati ed esplorate questo regno dove le parole modellano universi.<br><br>
+Buon viaggio.
+</p>
+{% endblock %}

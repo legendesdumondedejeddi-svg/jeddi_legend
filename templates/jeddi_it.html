@@ -1,64 +1,35 @@
 {% extends "layout.html" %}
-{% block title %}Jeddi — L’eroe leggendario{% endblock %}
+{% block title %}Jeddi — Il Custode delle Storie{% endblock %}
 {% block content %}
-<h1>Chi è Jeddi?</h1>
-<p>Scopri tutto su Jeddi, l’eroe leggendario che attraversa mondi, 
-affronta forze oscure e custodisce segreti dimenticati dal tempo.</p>
+<h1>Jeddi</h1>
+
+<p>
+⚔️ Scopri tutto su Jeddi, l’eroe leggendario
+</p>
+
+<p>
+Nel vasto universo di Leggende del Mondo di Jeddi, un nome risuona con forza e mistero: Jeddi. (nonno)  
+Ricercatore instancabile e custode dei racconti antichi, attraversa i secoli alla ricerca di storie dimenticate che hanno plasmato il nostro immaginario collettivo.
+</p>
+
+<p>
+Tra le mura silenziose della Biblioteca Nazionale di Francia, Jeddi si immerge nei manoscritti antichi, decifra parole scritte in antico francese e ridona vita alle leggende tramandate oralmente per generazioni.
+</p>
+
+<p>
+Il suo lavoro consiste nel riscrivere questi racconti nella lingua di oggi, affinché tutti possano comprenderli, sentirli e condividerli di nuovo.  
+Ma la sua avventura non finisce qui: Jeddi traduce anche queste storie in inglese, spagnolo, tedesco e italiano, permettendo alle leggende del mondo intero di incontrarsi e dialogare.
+</p>
+
+<p>
+Trae le sue fonti da libri antichi, archivi online e siti dedicati alla memoria dei popoli, tessendo pazientemente un ponte tra passato e presente.  
+Un lavoro lungo, svolto con passione e rispetto, affinché le voci di ieri possano continuare a ispirare quelle di domani.
+</p>
+
+<p>
+<i>Jeddi yella yeqqar-iyi-d timucuha-ya s yimi s umeẓẓuɣ</i><br>
+Mio nonno mi raccontava queste leggende tramandate di bocca in bocca.  
+La sua storia attraversa civiltà dimenticate, mondi paralleli e i sussurri del grimorio.
+</p>
+
 {% endblock %}
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <title>Jeddi — Eroe Leggendario</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-<header>
-  <img src="{{ url_for('static', filename='licorne.png') }}" alt="Bannière Licorne" class="header-banner">
-  <nav>
-    <a href="/it/accueil">Home</a>
-    <a href="/it/jeddi">Jeddi</a>
-    <a href="/it/about">Informazioni</a>
-    <a href="/it/galerie">Galleria</a>
-    <a href="/it/legendes">Leggende</a>
-    <a href="/it/don">Donazioni</a>
-    <div class="dropdown">
-      <button class="dropbtn">Lingua</button>
-      <div class="dropdown-content">
-        <a href="/fr/accueil">FR</a>
-        <a href="/en/accueil">EN</a>
-        <a href="/it/accueil">IT</a>
-        <a href="/de/accueil">DE</a>
-        <a href="/es/accueil">ES</a>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<main>
-  <h1>Jeddi — il custode delle leggende</h1>
-
-  <p>
-    Nel vasto universo di "Leggende del Mondo di Jeddi" una figura è centrale: Jeddi.  
-    Ricercatore instancabile e guardiano delle storie antiche, egli scava tra manoscritti, tesse traduzioni e ridona voce a racconti dimenticati.
-  </p>
-
-  <h3>Il suo lavoro</h3>
-  <p>
-    Jeddi visita archivi e biblioteche (come la BnF), decifra testi in vecchie lingue e riscrive i racconti in una lingua contemporanea.  
-    Inoltre cura le traduzioni in inglese, spagnolo, tedesco e italiano per permettere alle leggende di incontrarsi.
-  </p>
-
-  <h3>Perché lo fa</h3>
-  <p>
-    Per conservare le voci del passato e farle parlare anche oggi, con rispetto e passione.
-  </p>
-</main>
-
-<footer>
-  <p>© 2025 Légendes du Monde de Jeddi</p>
-  <img src="{{ url_for('static', filename='licorne.gif') }}" alt="Licorne qui galope" class="footer-gif">
-</footer>
-</body>
-</html>

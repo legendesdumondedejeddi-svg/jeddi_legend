@@ -1,15 +1,25 @@
 {% extends "layout.html" %}
 {% block title %}Apoyar el Proyecto{% endblock %}
 {% block content %}
-<h1>Apoyar el Proyecto</h1>
-<p>Tu contribución ayuda a preservar y compartir las historias antiguas reunidas aquí. 
-Este proyecto existe para mantener vivas y accesibles las historias olvidadas.</p>
+<h1>Apoyar el proyecto</h1>
+
+<p>
+Este sitio es un trabajo de preservación y difusión de relatos del pasado. Tu ayuda permite mantener vivas estas archivos.
+</p>
+
+<p>
+Las donaciones son esenciales para garantizar la continuidad y la calidad de nuestro trabajo. Muchos recursos fundamentales —incluidos textos accesibles solo mediante suscripción a la BnF, acceso a bases de datos en línea o archivos digitalizados— requieren gastos regulares. A esto se suman los costos de revisión y traducción, realizados por especialistas en francés antiguo y variedades lingüísticas de antiguas colonias francesas, cuyo dominio es esencial para restaurar fielmente documentos históricos.
+</p>
+
+<p>
+Las donaciones también permiten la compra o el alquiler de libros raros o descatalogados, indispensables para realizar investigaciones completas y rigurosas. Gracias a tu apoyo, podemos seguir preservando, estudiando y haciendo accesible un patrimonio literario e histórico que a menudo es difícil de consultar. Cada contribución, incluso la más pequeña, refuerza la continuidad de este trabajo y ayuda directamente a difundir conocimientos valiosos.
+</p>
 
 <form action="https://www.paypal.com/donate" method="post" target="_blank">
   <input type="hidden" name="business" value="patrick.letoffet@gmail.com">
   <input type="hidden" name="currency_code" value="EUR">
-  <button type="submit">Donar con PayPal</button>
+  <button type="submit">Donar a través de PayPal</button>
 </form>
 
-<p><small>Tu información de PayPal permanece privada.</small></p>
+<p><small>Tus datos de PayPal permanecen privados.</small></p>
 {% endblock %}
