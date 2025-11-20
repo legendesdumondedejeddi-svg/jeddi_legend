@@ -1,51 +1,20 @@
 {% extends "layout.html" %}
-{% block title %}Grimorio — Leyendas{% endblock %}
+{% block title %}Leyendas — Relatos de Jeddi{% endblock %}
+
 {% block content %}
-<h1>Libro de Leyendas</h1>
+<h1>Leyendas</h1>
 
-<section class="grimoire-area" style="background-image: url('{{ url_for('static', filename='images/grimoire.png') }}');">
-  <div class="grimoire-content">
-    <h2>Página {{ page }} / {{ pages }}</h2>
+<p>
+En los pasillos silenciosos del tiempo perdido, las historias vuelven a despertar.  
+Aquí descansan los viejos relatos, las voces errantes, los ecos que viajaron por los siglos.  
+Cada leyenda es una puerta, cada palabra una llama que guía a quienes aún sueñan.
+</p>
 
-    <article class="legend-text">
-      {{ legend_text | safe }}
-    </article>
-
-    <div class="pagination">
-      {% if page > 1 %}
-        <a href="/{{ lang }}/legendes?page={{ page-1 }}">← Anterior</a>
-      {% endif %}
-      {% if page < pages %}
-        <a href="/{{ lang }}/legendes?page={{ page+1 }}">Siguiente →</a>
-      {% endif %}
-    </div>
-  </div>
-</section>
-
-<section class="comments">
-  <h3>Comentarios</h3>
-  {% for c in comments %}
-    <div class="comment"><strong>{{ c.author }}</strong>: {{ c.text }}</div>
-  {% else %}
-    <div>No hay comentarios todavía.</div>
-  {% endfor %}
-  <form action="/{{ lang }}/comment" method="post">
-    <input type="hidden" name="index" value="{{ page-1 }}">
-    <input type="text" name="author" placeholder="Tu nombre (opcional)">
-    <textarea name="comment" rows="3" placeholder="Tu comentario..."></textarea>
-    <button type="submit">Enviar</button>
-  </form>
-</section>
-
-<section class="admin-edit">
-  <h3>Edición (Admin)</h3>
-  <form method="post" action="/{{ lang }}/legendes">
-    <textarea name="legend_text" rows="10" placeholder="Escribe o edita la leyenda aquí..."></textarea><br>
-    <label>Índice a modificar (dejar vacío para crear nuevo):
-      <input type="text" name="edit_index" placeholder="ej: {{ page }}">
-    </label>
-    <input type="password" name="password" placeholder="Contraseña admin">
-    <button type="submit">Guardar</button>
-  </form>
-</section>
+<ul>
+    <li>Leyenda 1: En las sombras de las montañas antiguas...</li>
+    <li>Leyenda 2: Donde las estrellas caen convertidas en polvo de plata...</li>
+    <li>Leyenda 3: En el umbral de los reinos quebrados...</li>
+    <li>Leyenda 4: Cuando el viento lleva voces olvidadas...</li>
+    <li>Leyenda 5: Bajo la luna de obsidiana...</li>
+</ul>
 {% endblock %}

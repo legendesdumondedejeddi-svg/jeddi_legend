@@ -1,131 +1,164 @@
-from flask import Flask, render_template, jsonify, request, redirect, url_for
+import os
+from flask import Flask, render_template, request, redirect, url_for, flash
+from math import ceil
+
+# -------------------------
+# Configuration sécurisée
+# -------------------------
+SECRET_KEY = os.environ.get("JEDDI_SECRET_KEY", "DevSecretKeyChangeMe")
+ADMIN_PASSWORD = os.environ.get("JEDDI_ADMIN_PASSWORD", "ChangeMoiEnProd")
 
 app = Flask(__name__)
+app.secret_key = SECRET_KEY
 
-# --------------------------------------------------
-# CONFIG
-# --------------------------------------------------
+# -------------------------
+# Langues
+# -------------------------
 LANGS = ["fr", "en", "es", "de", "it"]
 
-# Base de données simple des légendes (pour l’API)
-LEGENDS = [
-    {
-        "id": 1,
-        "title": "Aubépin la fille femme",
-        "country": "Maroc",
-        "lang": "fr",
-        "content": "C’est une longue aventure..."
-    },
-    {
-        "id": 2,
-        "title": "La Licorne du Val",
-        "country": "France",
-        "lang": "fr",
-        "content": "On raconte qu’une licorne..."
-    },
-]
+# -------------------------
+# Stockage local des légendes
+# -------------------------
+SAVE_FOLDER = "legendes_data"
+os.makedirs(SAVE_FOLDER, exist_ok=True)
 
-# Ancienne liste utilisée par la page “Grimoire”
-legendes = [
-    "Légende 1 : Dans les ombres des montagnes anciennes...",
-    "Légende 2 : Là où les étoiles tombent en poussière...",
-    "Légende 3 : Au seuil des royaumes brisés...",
-    "Légende 4 : Quand le vent porte les voix disparues...",
-    "Légende 5 : Sous la lune d’obsidienne..."
-]
+def legend_file(lang):
+    return os.path.join(SAVE_FOLDER, f"legendes_{lang}.txt")
 
-# Commentaires du grimoire
-commentaires = []
+def load_legend_texts(lang):
+    path = legend_file(lang)
+    if not os.path.exists(path):
+        return []
+    with open(path, "r", encoding="utf-8") as f:
+        blocks = f.read().split("\n\n---\n\n")
+        legends = []
+        for i, b in enumerate(blocks):
+            if not b.strip():
+                continue
+            lines = b.split("\n", 1)
+            title = lines[0].strip()
+            content = lines[1].strip() if len(lines) > 1 else ""
+            legends.append({"id": i+1, "title": title, "content": content})
+        return legends
 
-# --------------------------------------------------
-# ROUTES MULTILINGUES
-# --------------------------------------------------
-def render_page(page_name):
-    lang = request.args.get("lang", "fr")
+def save_legend_texts(lang, texts):
+    path = legend_file(lang)
+    with open(path, "w", encoding="utf-8") as f:
+        blocks = []
+        for t in texts:
+            blocks.append(f"{t['title']}\n{t['content']}")
+        f.write("\n\n---\n\n".join(blocks))
+
+# -------------------------
+# Page racine
+# -------------------------
+@app.route("/")
+def root():
+    return redirect("/fr/accueil")
+
+# -------------------------
+# Pages statiques multi-langues
+# -------------------------
+PAGES = ["accueil", "apropos", "jeddi", "galerie", "don"]
+
+for lang in LANGS:
+    for page in PAGES:
+        template_name = f"{page}_{lang}.html"
+        route = f"/{lang}/{page}"
+
+        def make_route(tpl=template_name, lg=lang):
+            def route_func():
+                return render_template(tpl, lang=lg)
+            return route_func
+
+        endpoint = f"{page}_{lang}"
+        app.add_url_rule(route, endpoint, make_route())
+
+# -------------------------
+# Grimoire (légendes + pagination)
+# -------------------------
+@app.route("/<lang>/grimoire")
+def grimoire(lang):
     if lang not in LANGS:
         lang = "fr"
-    return render_template(f"{page_name}_{lang}.html", lang=lang)
 
-@app.route("/")
-def accueil():
-    return render_page("accueil")
-
-@app.route("/apropos")
-def apropos():
-    return render_page("apropos")
-
-@app.route("/dons")
-def dons():
-    return render_page("dons")
-
-@app.route("/jeddi")
-def jeddi():
-    return render_page("jeddi")
-
-@app.route("/galerie")
-def galerie():
-    return render_page("galerie")
-
-
-# --------------------------------------------------
-# PAGE GRIMOIRE AVEC PAGINATION
-# --------------------------------------------------
-@app.route("/grimoire")
-def grimoire():
-    lang = request.args.get("lang", "fr")
     page = int(request.args.get("page", 1))
 
-    # Sélection du texte
-    index = page - 1
-    texte = legendes[index]
+    legends = load_legend_texts(lang)
+    total = len(legends)
+    per_page = 1
+    max_pages = max(1, ceil(total / per_page))
 
-    # Pagination
-    next_page = page + 1 if page < len(legendes) else None
-    prev_page = page - 1 if page > 1 else None
+    if page < 1:
+        page = 1
+    if page > max_pages:
+        page = max_pages
 
-    return render_template(
-        "grimoire.html",
-        lang=lang,
-        texte=texte,
-        page=page,
-        next_page=next_page,
-        prev_page=prev_page,
-        commentaires=commentaires
-    )
+    index = (page - 1) * per_page
+    legend = legends[index] if legends else {"title": "(Aucune légende)", "content": ""}
 
+    return render_template("grimoire.html",
+                           lang=lang,
+                           legend=legend,
+                           page=page,
+                           pages=max_pages)
 
-# --------------------------------------------------
-# COMMENTAIRES DU GRIMOIRE
-# --------------------------------------------------
-@app.route("/commentaires", methods=["POST"])
-def commentaires_route():
-    commentaire = request.form.get("commentaire")    
-    if commentaire:
-        commentaires.append(commentaire)
-    return redirect(url_for("grimoire"))
+# -------------------------
+# Commentaires (non persistants)
+# -------------------------
+commentaires = []
 
+@app.route("/<lang>/commentaires", methods=["POST"])
+def commentaires_post(lang):
+    texte = request.form.get("commentaire", "").strip()
+    if texte:
+        commentaires.append({"lang": lang, "texte": texte})
+        flash("Merci, commentaire enregistré.")
+    return redirect(url_for("grimoire", lang=lang))
 
-# --------------------------------------------------
-# API JSON (PAYS, ALPHABET, etc.)
-# --------------------------------------------------
-@app.route("/api/legends")
-def api_legends():
-    lang = request.args.get("lang", "fr")
-    country = request.args.get("country")
-    alpha = request.args.get("alpha")
+# -------------------------
+# Administration
+# -------------------------
+@app.route("/admin/<lang>", methods=["GET", "POST"])
+def admin(lang):
+    if lang not in LANGS:
+        lang = "fr"
 
-    data = LEGENDS
+    if request.method == "POST":
+        pwd = request.form.get("password", "")
+        if pwd != ADMIN_PASSWORD:
+            flash("Mot de passe incorrect.")
+            return redirect(url_for("admin", lang=lang))
 
-    # Filtre par langue
-    if lang:
-        data = [l for l in data if l["lang"] == lang]
+        raw = request.form.get("raw_legends", "")
+        texts = []
+        for block in raw.split("\n\n---\n\n"):
+            b = block.strip()
+            if not b:
+                continue
+            lines = b.split("\n", 1)
+            title = lines[0]
+            content = lines[1] if len(lines) > 1 else ""
+            texts.append({"title": title, "content": content})
 
-    # Filtre par pays
-    if country:
-        data = [l for l in data if l["country"].lower() == country.lower()]
+        save_legend_texts(lang, texts)
+        flash("Légendes sauvegardées.")
+        return redirect(url_for("grimoire", lang=lang))
 
-    # Filtre alphabétique
-    if alpha:
-        data = [l for l in data if l["title"].lower().startswith(alpha.lower())]
+    existing = load_legend_texts(lang)
+    raw = "\n\n---\n\n".join([f"{e['title']}\n{e['content']}" for e in existing])
 
-    return jsonify(data)
+    return render_template("admin.html", lang=lang, raw_legends=raw)
+
+# -------------------------
+# Route santé Render
+# -------------------------
+@app.route("/sante")
+def sante():
+    return "ok", 200
+
+# -------------------------
+# Point d'entrée Render
+# -------------------------
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))

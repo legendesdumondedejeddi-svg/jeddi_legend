@@ -1,51 +1,20 @@
 {% extends "layout.html" %}
-{% block title %}Grimoire — Legends{% endblock %}
+{% block title %}Legends — Tales of Jeddi{% endblock %}
+
 {% block content %}
-<h1>Book of Legends</h1>
+<h1>Legends</h1>
 
-<section class="grimoire-area" style="background-image: url('{{ url_for('static', filename='images/grimoire.png') }}');">
-  <div class="grimoire-content">
-    <h2>Page {{ page }} / {{ pages }}</h2>
+<p>
+In the hushed corridors of forgotten time, stories rise like sparks in the night.  
+Here lie the old tales, the wandering voices, the echoes carried through the ages.  
+Each legend is a doorway, each word a lantern, guiding those who still dare to dream.
+</p>
 
-    <article class="legend-text">
-      {{ legend_text | safe }}
-    </article>
-
-    <div class="pagination">
-      {% if page > 1 %}
-        <a href="/{{ lang }}/legendes?page={{ page-1 }}">← Previous</a>
-      {% endif %}
-      {% if page < pages %}
-        <a href="/{{ lang }}/legendes?page={{ page+1 }}">Next →</a>
-      {% endif %}
-    </div>
-  </div>
-</section>
-
-<section class="comments">
-  <h3>Comments</h3>
-  {% for c in comments %}
-    <div class="comment"><strong>{{ c.author }}</strong>: {{ c.text }}</div>
-  {% else %}
-    <div>No comments yet.</div>
-  {% endfor %}
-  <form action="/{{ lang }}/comment" method="post">
-    <input type="hidden" name="index" value="{{ page-1 }}">
-    <input type="text" name="author" placeholder="Your name (optional)">
-    <textarea name="comment" rows="3" placeholder="Your comment..."></textarea>
-    <button type="submit">Send</button>
-  </form>
-</section>
-
-<section class="admin-edit">
-  <h3>Editing (Admin)</h3>
-  <form method="post" action="/{{ lang }}/legendes">
-    <textarea name="legend_text" rows="10" placeholder="Write or edit the legend here..."></textarea><br>
-    <label>Index to modify (leave empty to create new):
-      <input type="text" name="edit_index" placeholder="ex: {{ page }}">
-    </label>
-    <input type="password" name="password" placeholder="Admin password">
-    <button type="submit">Save</button>
-  </form>
-</section>
+<ul>
+    <li>Legend 1: In the shadows of the ancient mountains...</li>
+    <li>Legend 2: Where the falling stars turn into silver dust...</li>
+    <li>Legend 3: At the threshold of broken kingdoms...</li>
+    <li>Legend 4: When the wind carries the lost voices...</li>
+    <li>Legend 5: Beneath the obsidian moon...</li>
+</ul>
 {% endblock %}

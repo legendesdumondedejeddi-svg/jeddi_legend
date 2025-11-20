@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block title %}Admin — Légendes{% endblock %}
+{% block content %}
+<h2>Admin — Édition des légendes ({{ lang }})</h2>
+<p>Format : chaque légende commence par son titre en première ligne, puis le contenu, séparez les légendes par une ligne `---` (trois tirets entourés de lignes vides).</p>
+<form method="post">
+    <textarea name="raw_legends" style="min-height:400px;">{{ raw_legends }}</textarea><br>
+    <input type="password" name="password" placeholder="Mot de passe admin"><br>
+    <button type="submit">Enregistrer</button>
+</form>
+{% endblock %}
